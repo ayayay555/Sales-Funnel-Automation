@@ -1,0 +1,1099 @@
+{
+    "name": "Integration Facebook Lead Ads",
+    "flow": [
+        {
+            "id": 1,
+            "module": "facebook-lead-ads:NewLeadMultiple",
+            "version": 2,
+            "parameters": {
+                "v": "2",
+                "fields": [
+                    "id",
+                    "ad_id",
+                    "ad_name",
+                    "adset_id",
+                    "adset_name",
+                    "campaign_id",
+                    "campaign_name",
+                    "created_time",
+                    "custom_disclaimer_responses",
+                    "field_data",
+                    "form_id",
+                    "home_listing",
+                    "is_organic",
+                    "partner_name",
+                    "platform",
+                    "retailer_item_id",
+                    "vehicle"
+                ],
+                "__IMTHOOK__": 2910151
+            },
+            "mapper": {},
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "parameters": {
+                        "__IMTHOOK__": {
+                            "data": {
+                                "editable": "false"
+                            },
+                            "label": "ta unli | testform"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTHOOK__",
+                        "type": "hook:facebook-lead-ads-new-event",
+                        "label": "Webhook",
+                        "required": true
+                    },
+                    {
+                        "name": "v",
+                        "type": "hidden"
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "id",
+                                "ad_id",
+                                "ad_name",
+                                "adset_id",
+                                "adset_name",
+                                "campaign_id",
+                                "campaign_name",
+                                "created_time",
+                                "custom_disclaimer_responses",
+                                "field_data",
+                                "form_id",
+                                "home_listing",
+                                "is_organic",
+                                "partner_name",
+                                "platform",
+                                "retailer_item_id",
+                                "vehicle"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "leadgenId",
+                        "type": "text",
+                        "label": "Lead ID"
+                    },
+                    {
+                        "name": "formId",
+                        "type": "text",
+                        "label": "Form ID"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "adId",
+                        "type": "text",
+                        "label": "Ad ID"
+                    },
+                    {
+                        "name": "pageId",
+                        "type": "text",
+                        "label": "Page ID"
+                    },
+                    {
+                        "name": "adgroupId",
+                        "type": "text",
+                        "label": "Ad group ID"
+                    },
+                    {
+                        "name": "data",
+                        "spec": [
+                            {
+                                "name": "do_you_want_to_buy?",
+                                "type": "array",
+                                "label": "Do you want to buy?"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "full_name",
+                                "type": "text",
+                                "label": "Full name"
+                            },
+                            {
+                                "name": "inbox_url",
+                                "type": "text",
+                                "label": "Inbox URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Field data"
+                    },
+                    {
+                        "name": "isOrganic",
+                        "type": "boolean",
+                        "label": "Is organic"
+                    },
+                    {
+                        "name": "adName",
+                        "type": "text",
+                        "label": "Ad name"
+                    },
+                    {
+                        "name": "adsetId",
+                        "type": "text",
+                        "label": "Ad set ID"
+                    },
+                    {
+                        "name": "adsetName",
+                        "type": "text",
+                        "label": "Adset name"
+                    },
+                    {
+                        "name": "campaignId",
+                        "type": "text",
+                        "label": "Campaign ID"
+                    },
+                    {
+                        "name": "campaignName",
+                        "type": "text",
+                        "label": "Campaign name"
+                    },
+                    {
+                        "name": "customDisclaimerResponses",
+                        "type": "collection",
+                        "label": "Custom disclaimer responses"
+                    },
+                    {
+                        "name": "homeListing",
+                        "type": "collection",
+                        "label": "Home listing"
+                    },
+                    {
+                        "name": "partnerName",
+                        "type": "text",
+                        "label": "Partner name"
+                    },
+                    {
+                        "name": "platform",
+                        "type": "text",
+                        "label": "Platform"
+                    },
+                    {
+                        "name": "retailerItemId",
+                        "type": "text",
+                        "label": "Retailer item ID"
+                    },
+                    {
+                        "name": "vehicle",
+                        "type": "collection",
+                        "label": "Vehicle"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "facebook-lead-ads:GetLeadDetails",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 10453627
+            },
+            "mapper": {
+                "v": "2",
+                "id": "{{1.leadgenId}}",
+                "formId": "1239977444101157",
+                "pageId": "647301918475979"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "formId": {
+                            "mode": "chose",
+                            "label": "Application Form"
+                        },
+                        "pageId": {
+                            "mode": "chose",
+                            "label": "Testauto"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "facebook"
+                            },
+                            "label": "testauto (Karl Gonzales)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:facebook",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "pageId",
+                        "type": "select",
+                        "label": "Page",
+                        "required": true
+                    },
+                    {
+                        "name": "id",
+                        "type": "text",
+                        "label": "Lead ID",
+                        "required": true
+                    },
+                    {
+                        "name": "v",
+                        "type": "hidden"
+                    },
+                    {
+                        "name": "formId",
+                        "type": "select",
+                        "label": "Form",
+                        "required": true
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "leadgenId",
+                        "type": "text",
+                        "label": "Lead ID"
+                    },
+                    {
+                        "name": "formId",
+                        "type": "text",
+                        "label": "Form ID"
+                    },
+                    {
+                        "name": "dateCreated",
+                        "type": "date",
+                        "label": "Date created"
+                    },
+                    {
+                        "name": "adId",
+                        "type": "text",
+                        "label": "Ad ID"
+                    },
+                    {
+                        "name": "data",
+                        "spec": [
+                            {
+                                "name": "do_you_want_to_buy?",
+                                "type": "array",
+                                "label": "Do you want to buy?"
+                            },
+                            {
+                                "name": "email",
+                                "type": "text",
+                                "label": "Email"
+                            },
+                            {
+                                "name": "full_name",
+                                "type": "text",
+                                "label": "Full name"
+                            },
+                            {
+                                "name": "inbox_url",
+                                "type": "text",
+                                "label": "Inbox URL"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Field data"
+                    },
+                    {
+                        "name": "isOrganic",
+                        "type": "boolean",
+                        "label": "Is organic"
+                    },
+                    {
+                        "name": "adName",
+                        "type": "text",
+                        "label": "Ad name"
+                    },
+                    {
+                        "name": "adsetId",
+                        "type": "text",
+                        "label": "Ad set ID"
+                    },
+                    {
+                        "name": "adsetName",
+                        "type": "text",
+                        "label": "Adset name"
+                    },
+                    {
+                        "name": "campaignId",
+                        "type": "text",
+                        "label": "Campaign ID"
+                    },
+                    {
+                        "name": "campaignName",
+                        "type": "text",
+                        "label": "Campaign name"
+                    },
+                    {
+                        "name": "customDisclaimerResponses",
+                        "type": "collection",
+                        "label": "Custom disclaimer responses"
+                    },
+                    {
+                        "name": "homeListing",
+                        "type": "collection",
+                        "label": "Home listing"
+                    },
+                    {
+                        "name": "partnerName",
+                        "type": "text",
+                        "label": "Partner name"
+                    },
+                    {
+                        "name": "platform",
+                        "type": "text",
+                        "label": "Platform"
+                    },
+                    {
+                        "name": "retailerItemId",
+                        "type": "text",
+                        "label": "Retailer item ID"
+                    },
+                    {
+                        "name": "vehicle",
+                        "type": "collection",
+                        "label": "Vehicle"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "pipedrive:searchPersons",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 10490599
+            },
+            "mapper": {
+                "term": "{{5.data.email}}",
+                "limit": "1",
+                "fields": [
+                    "email"
+                ],
+                "exact_match": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "fields": {
+                            "mode": "chose"
+                        },
+                        "exact_match": {
+                            "mode": "chose"
+                        },
+                        "organization_id": {
+                            "mode": "chose",
+                            "label": "Empty"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "pipedrive-apikey"
+                            },
+                            "label": "My Pipedrive API token connection"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "term",
+                        "type": "text",
+                        "label": "Term",
+                        "required": true
+                    },
+                    {
+                        "name": "fields",
+                        "type": "select",
+                        "label": "Fields",
+                        "multiple": true,
+                        "validate": {
+                            "enum": [
+                                "custom_fields",
+                                "notes",
+                                "email",
+                                "phone",
+                                "name"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "exact_match",
+                        "type": "boolean",
+                        "label": "Exact Match"
+                    },
+                    {
+                        "name": "organization_id",
+                        "type": "select",
+                        "label": "Organization ID"
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "builtin:BasicRouter",
+            "version": 1,
+            "parameters": {
+                "else": 1
+            },
+            "mapper": null,
+            "metadata": {
+                "designer": {
+                    "x": 900,
+                    "y": 0
+                }
+            },
+            "routes": [
+                {
+                    "flow": [
+                        {
+                            "id": 8,
+                            "module": "pipedrive:CreatePerson",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 10490599
+                            },
+                            "filter": {
+                                "name": "if contact dont exist",
+                                "conditions": [
+                                    [
+                                        {
+                                            "a": "{{6.`__IMTLENGTH__`}}",
+                                            "b": "0",
+                                            "o": "text:equal"
+                                        }
+                                    ]
+                                ]
+                            },
+                            "mapper": {
+                                "name": "{{5.data.full_name}}",
+                                "email": [
+                                    {
+                                        "label": "work",
+                                        "value": "{{5.data.email}}"
+                                    }
+                                ],
+                                "phone": [
+                                    {
+                                        "label": "work",
+                                        "value": "{{5.data.full_name}}"
+                                    }
+                                ]
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": -150
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "email": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "primary": {
+                                                        "mode": "chose"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "phone": {
+                                            "mode": "chose",
+                                            "items": [
+                                                {
+                                                    "primary": {
+                                                        "mode": "chose"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "visible_to": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "pipedrive-apikey"
+                                            },
+                                            "label": "My Pipedrive API token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "name",
+                                        "type": "text",
+                                        "label": "Name",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "owner_id",
+                                        "type": "number",
+                                        "label": "Owner"
+                                    },
+                                    {
+                                        "name": "org_id",
+                                        "type": "number",
+                                        "label": "Organization"
+                                    },
+                                    {
+                                        "name": "email",
+                                        "spec": [
+                                            {
+                                                "name": "label",
+                                                "type": "text",
+                                                "label": "Label"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "primary",
+                                                "type": "boolean",
+                                                "label": "Is Primary"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Emails"
+                                    },
+                                    {
+                                        "name": "phone",
+                                        "spec": [
+                                            {
+                                                "name": "label",
+                                                "type": "text",
+                                                "label": "Label"
+                                            },
+                                            {
+                                                "name": "value",
+                                                "type": "text",
+                                                "label": "Value",
+                                                "required": true
+                                            },
+                                            {
+                                                "name": "primary",
+                                                "type": "boolean",
+                                                "label": "Is Primary"
+                                            }
+                                        ],
+                                        "type": "array",
+                                        "label": "Phones"
+                                    },
+                                    {
+                                        "name": "add_time",
+                                        "type": "date",
+                                        "label": "Add time"
+                                    },
+                                    {
+                                        "name": "visible_to",
+                                        "type": "select",
+                                        "label": "Visible to"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 9,
+                            "module": "pipedrive:CreateObject",
+                            "version": 2,
+                            "metadata": {
+                                "designer": {
+                                    "x": 1500,
+                                    "y": -150
+                                }
+                            }
+                        },
+                        {
+                            "id": 19,
+                            "module": "google-sheets:updateCell",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 10497294
+                            },
+                            "mapper": {
+                                "cell": "{{5.data.full_name}}",
+                                "from": "drive",
+                                "select": "list",
+                                "sheetId": "Sheet1",
+                                "spreadsheetId": "/19eH3SOgkBL49xhm8omJsLFDjTAsGVDmfxZCcWcmOMy4",
+                                "valueInputOption": "USER_ENTERED"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1507,
+                                    "y": 479
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "from": {
+                                            "label": "My Drive"
+                                        },
+                                        "select": {
+                                            "label": "Search by path"
+                                        },
+                                        "sheetId": {
+                                            "label": "Sheet1"
+                                        },
+                                        "spreadsheetId": {
+                                            "path": [
+                                                "test"
+                                            ]
+                                        },
+                                        "valueInputOption": {
+                                            "mode": "chose",
+                                            "label": "User entered"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google"
+                                            },
+                                            "label": "My Google connection (karlgonzales741@gmail.com)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:google",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "select",
+                                        "type": "select",
+                                        "label": "Search Method",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "list",
+                                                "fromAll",
+                                                "map"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "cell",
+                                        "type": "text",
+                                        "label": "Cell",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    },
+                                    {
+                                        "name": "valueInputOption",
+                                        "type": "select",
+                                        "label": "Value input option",
+                                        "validate": {
+                                            "enum": [
+                                                "USER_ENTERED",
+                                                "RAW"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "from",
+                                        "type": "select",
+                                        "label": "Drive",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "drive",
+                                                "share",
+                                                "team"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "spreadsheetId",
+                                        "type": "file",
+                                        "label": "Spreadsheet ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "sheetId",
+                                        "type": "select",
+                                        "label": "Sheet Name",
+                                        "required": true
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "flow": [
+                        {
+                            "id": 10,
+                            "module": "pipedrive:CreateObject",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 10490599
+                            },
+                            "filter": {
+                                "name": "if contact exist",
+                                "conditions": []
+                            },
+                            "mapper": {
+                                "title": "{{5.data.full_name}}",
+                                "add_time": "{{now}}",
+                                "stage_id": 7,
+                                "person_id": "{{6.id}}",
+                                "visible_to": 7,
+                                "3d08ea27cb4309a380bce728255fb1e520301e53": "{{5.data.`do_you_want_to_buy?`}}",
+                                "fe6e85a4c699e2288d25fd61d20cebc46c839da7": "{{5.data.email}}"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1200,
+                                    "y": 150
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "status": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "user_id": {
+                                            "mode": "chose",
+                                            "label": "Empty"
+                                        },
+                                        "stage_id": {
+                                            "mode": "chose",
+                                            "label": "Scheduled (Pipelinerz, 7)"
+                                        },
+                                        "visible_to": {
+                                            "mode": "chose",
+                                            "label": "All users"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "pipedrive-apikey"
+                                            },
+                                            "label": "My Pipedrive API token connection"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:pipedrive-auth,pipedrive-apikey",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "title",
+                                        "type": "text",
+                                        "label": "Title",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    },
+                                    {
+                                        "name": "currency",
+                                        "type": "text",
+                                        "label": "Currency",
+                                        "validate": {
+                                            "max": 3,
+                                            "min": 3
+                                        }
+                                    },
+                                    {
+                                        "name": "user_id",
+                                        "type": "select",
+                                        "label": "User"
+                                    },
+                                    {
+                                        "name": "person_id",
+                                        "type": "number",
+                                        "label": "Person"
+                                    },
+                                    {
+                                        "name": "org_id",
+                                        "type": "number",
+                                        "label": "Organization"
+                                    },
+                                    {
+                                        "name": "stage_id",
+                                        "type": "select",
+                                        "label": "Stage"
+                                    },
+                                    {
+                                        "name": "status",
+                                        "type": "select",
+                                        "label": "Status",
+                                        "validate": {
+                                            "enum": [
+                                                "open",
+                                                "won",
+                                                "lost",
+                                                "deleted"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "expected_close_date",
+                                        "time": false,
+                                        "type": "date",
+                                        "label": "Expected close date"
+                                    },
+                                    {
+                                        "name": "probability",
+                                        "type": "number",
+                                        "label": "Probability"
+                                    },
+                                    {
+                                        "name": "lost_reason",
+                                        "type": "text",
+                                        "label": "Lost reason"
+                                    },
+                                    {
+                                        "name": "add_time",
+                                        "type": "date",
+                                        "label": "Add time"
+                                    },
+                                    {
+                                        "name": "visible_to",
+                                        "type": "select",
+                                        "label": "Visible to"
+                                    },
+                                    {
+                                        "name": "fe6e85a4c699e2288d25fd61d20cebc46c839da7",
+                                        "type": "text",
+                                        "label": "Contact"
+                                    },
+                                    {
+                                        "name": "3d08ea27cb4309a380bce728255fb1e520301e53",
+                                        "type": "text",
+                                        "label": "Shirt or Pants"
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "id": 15,
+                            "module": "google-sheets:updateCell",
+                            "version": 2,
+                            "parameters": {
+                                "__IMTCONN__": 10497294
+                            },
+                            "mapper": {
+                                "cell": "{{6.organization.name}}",
+                                "from": "drive",
+                                "select": "list",
+                                "sheetId": "Sheet1",
+                                "spreadsheetId": "/19eH3SOgkBL49xhm8omJsLFDjTAsGVDmfxZCcWcmOMy4",
+                                "valueInputOption": "USER_ENTERED"
+                            },
+                            "metadata": {
+                                "designer": {
+                                    "x": 1196,
+                                    "y": 476
+                                },
+                                "restore": {
+                                    "expect": {
+                                        "from": {
+                                            "label": "My Drive"
+                                        },
+                                        "select": {
+                                            "label": "Search by path"
+                                        },
+                                        "sheetId": {
+                                            "label": "Sheet1"
+                                        },
+                                        "spreadsheetId": {
+                                            "path": [
+                                                "test"
+                                            ]
+                                        },
+                                        "valueInputOption": {
+                                            "mode": "chose",
+                                            "label": "User entered"
+                                        }
+                                    },
+                                    "parameters": {
+                                        "__IMTCONN__": {
+                                            "data": {
+                                                "scoped": "true",
+                                                "connection": "google"
+                                            },
+                                            "label": "My Google connection (karlgonzales741@gmail.com)"
+                                        }
+                                    }
+                                },
+                                "parameters": [
+                                    {
+                                        "name": "__IMTCONN__",
+                                        "type": "account:google",
+                                        "label": "Connection",
+                                        "required": true
+                                    }
+                                ],
+                                "expect": [
+                                    {
+                                        "name": "select",
+                                        "type": "select",
+                                        "label": "Search Method",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "list",
+                                                "fromAll",
+                                                "map"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "cell",
+                                        "type": "text",
+                                        "label": "Cell",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "value",
+                                        "type": "text",
+                                        "label": "Value"
+                                    },
+                                    {
+                                        "name": "valueInputOption",
+                                        "type": "select",
+                                        "label": "Value input option",
+                                        "validate": {
+                                            "enum": [
+                                                "USER_ENTERED",
+                                                "RAW"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "from",
+                                        "type": "select",
+                                        "label": "Drive",
+                                        "required": true,
+                                        "validate": {
+                                            "enum": [
+                                                "drive",
+                                                "share",
+                                                "team"
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "name": "spreadsheetId",
+                                        "type": "file",
+                                        "label": "Spreadsheet ID",
+                                        "required": true
+                                    },
+                                    {
+                                        "name": "sheetId",
+                                        "type": "select",
+                                        "label": "Sheet Name",
+                                        "required": true
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "metadata": {
+        "instant": true,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "eu2.make.com",
+        "notes": []
+    }
+}
